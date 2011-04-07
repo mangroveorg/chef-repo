@@ -86,7 +86,7 @@ git "/home/mangrover/mangrove" do
 end
 
 
-bash "mangrove_apps" do
+bash "mangrove_setup_dependencies" do
   code <<-EOH
    (source /home/mangrover/awe_ve/bin/activate && cd /home/mangrover/mangrove && pip install -r requirements.pip)
   EOH
@@ -97,9 +97,11 @@ python_pip "gunicorn" do
   action :install
 end
 
-bash "mangrove_apps" do
+bash "mangrove_apps_runserver" do
+  user "mangrover"
   code <<-EOH
-   (source /home/mangrover/awe_ve/bin/activate && cd /home/mangrover/mangrove/src/datawinners && python manage.py syncdb && gunicorn_django -D -b 0.0.0.0:8000 --pid=mangrove_gunicorn)
+   (source /home/mangrover/awe_ve/bin/activate && cd /home/mangrover/mangrove/src/datawinners && python manage.py syncdb && chmod 777 mangrovedb) 
+   (source /home/mangrover/awe_ve/bin/activate && cd /home/mangrover/mangrove/src/datawinners && gunicorn_django -D -b 0.0.0.0:8000 --pid=mangrove_gunicorn)
   EOH
 end
 

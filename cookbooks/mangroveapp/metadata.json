@@ -1,23 +1,27 @@
 {
+  "replacing": {
+  },
   "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
-  "providing": {
+  "maintainer_email": "YOUR_EMAIL",
+  "description": "Installs/Configures mangroveapp",
+  "groupings": {
+  },
+  "recommendations": {
   },
   "attributes": {
   },
-  "maintainer": "YOUR_COMPANY_NAME",
-  "replacing": {
+  "suggestions": {
   },
   "dependencies": {
     "python": [
 
     ]
   },
-  "maintainer_email": "YOUR_EMAIL",
-  "groupings": {
+  "recipes": {
+    "mangrove": "Install the mangrove application"
   },
-  "recommendations": {
+  "conflicting": {
   },
-  "license": "All rights reserved",
   "platforms": {
     "debian": [
 
@@ -36,13 +40,9 @@
     ]
   },
   "version": "0.0.1",
-  "recipes": {
-    "mangrove": "Install the mangrove application"
-  },
-  "suggestions": {
-  },
+  "license": "All rights reserved",
   "name": "mangroveapp",
-  "conflicting": {
+  "providing": {
   },
-  "description": "Installs/Configures mangroveapp"
+  "maintainer": "YOUR_COMPANY_NAME"
 }
