@@ -15,6 +15,7 @@ user "mangrover" do
   home "/home/mangrover"
   shell "/bin/bash"
   password "$6$TZTze7VZ3rH4Ta8F$pJ1Yxm2B4sIQ9YkeM/NAstypZIQMC00zrVXXqfwEbm5CpBZGtiaP80/xfIuLxn3GNtFUmqWTBZ/f/5phYo7XW1"
+  not_if "grep mangrover /etc/passwd"
 end
 
 directory "/home/mangrover" do
@@ -22,6 +23,7 @@ directory "/home/mangrover" do
   group "users"
   mode "0755"
   action :create
+  not_if "grep mangrover /etc/passwd"
 end
 
 
@@ -97,7 +99,7 @@ end
 
 bash "mangrove_apps" do
   code <<-EOH
-   (source /home/mangrover/awe_ve/bin/activate && cd /home/mangrover/mangrove/src/datawinners && gunicorn_django -D -b 0.0.0.0:8000 --pid=mangrove_gunicorn)
+   (source /home/mangrover/awe_ve/bin/activate && cd /home/mangrover/mangrove/src/datawinners && python manage.py syncdb && gunicorn_django -D -b 0.0.0.0:8000 --pid=mangrove_gunicorn)
   EOH
 end
 
