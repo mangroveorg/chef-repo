@@ -1,0 +1,6 @@
+{
+"run_list" : [
+  		"recipe[python]",
+  		"recipe[mangroveapp]"
+	     ]	
+}
