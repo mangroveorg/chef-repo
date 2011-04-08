@@ -1,2 +1,2 @@
-file_cache_path "~/chef-repo"
-cookbook_path ["~/chef-repo/cookbooks"]
+file_cache_path "/home/mangrover/chef-repo"
+cookbook_path ["/home/mangrover/chef-repo/cookbooks"]
